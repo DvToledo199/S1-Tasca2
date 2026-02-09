@@ -1,6 +1,6 @@
 package Nivel1;
 
-public class EmptySaleException extends Exception{
+public class EmptySaleException extends RuntimeException{
 
 
 
