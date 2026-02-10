@@ -1,4 +1,4 @@
-package Nivel1;
+package nivel1;
 
 public class Product {
     private String name;
