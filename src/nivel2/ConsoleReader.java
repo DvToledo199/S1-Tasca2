@@ -33,4 +33,32 @@ public class ConsoleReader {
             }
         }
     }
+
+    public static byte readByte(String message) {
+        while (true) {
+            try {
+                System.out.println(message);
+                byte value = sc.nextByte();
+                sc.nextLine();
+                return value;
+            } catch (Exception e) {
+                System.out.println("Invalid format. Please enter an integer between -128 and 127.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    public static float readFloat(String message) {
+        while (true) {
+            try {
+                System.out.println(message);
+                float value = sc.nextFloat();
+                sc.nextLine();
+                return value;
+            } catch (Exception e) {
+                System.out.println("Invalid format. Please enter a decimal number.");
+                sc.nextLine();
+            }
+        }
+    }
 }
