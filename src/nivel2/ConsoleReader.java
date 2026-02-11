@@ -61,4 +61,20 @@ public class ConsoleReader {
             }
         }
     }
+
+    public static char readChar(String message){
+        while (true){
+            try{
+                System.out.println(message);
+                String value = sc.nextLine();
+                if (value.length() != 1){
+                    throw new Exception("Please enter a single character.");
+                }
+                char valueChar = value.charAt(0);
+                return valueChar;
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 }
