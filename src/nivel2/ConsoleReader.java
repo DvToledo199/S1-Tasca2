@@ -96,4 +96,18 @@ public class ConsoleReader {
             }
         }
     }
+    public static String readString(String message){
+        while(true){
+            try{
+                System.out.println(message);
+                String value = sc.nextLine();
+                if(value.trim().isEmpty()){
+                    throw new Exception("Input cannot be empty. Please enter a text.");
+                }
+                return value;
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 }
