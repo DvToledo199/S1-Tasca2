@@ -77,4 +77,23 @@ public class ConsoleReader {
             }
         }
     }
+    public static boolean readYesNo(String message){
+        while(true){
+            try{
+                System.out.println(message);
+                String value = sc.nextLine();
+                if(!value.equals("s") && !value.equals("n") ){
+                    throw new Exception("Invalid input. Please choose 's' or 'n'.");
+                }
+
+                if (value.equals("s")){
+                    return true;
+                } else if (value.equals("n")) {
+                    return false;
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 }
