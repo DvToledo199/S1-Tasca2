@@ -1,6 +1,7 @@
 package nivel2;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class ConsoleReader {
     private static Scanner sc = new Scanner(System.in);
@@ -13,7 +14,7 @@ public class ConsoleReader {
                 int value = sc.nextInt();
                 sc.nextLine();
                 return value;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid format. Please enter an integer number.");
                 sc.nextLine();
             }
@@ -27,7 +28,7 @@ public class ConsoleReader {
                 double value = sc.nextDouble();
                 sc.nextLine();
                 return value;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid format. Please enter a decimal number.");
                 sc.nextLine();
             }
@@ -41,7 +42,7 @@ public class ConsoleReader {
                 byte value = sc.nextByte();
                 sc.nextLine();
                 return value;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid format. Please enter an integer between -128 and 127.");
                 sc.nextLine();
             }
@@ -55,7 +56,7 @@ public class ConsoleReader {
                 float value = sc.nextFloat();
                 sc.nextLine();
                 return value;
-            } catch (Exception e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid format. Please enter a decimal number.");
                 sc.nextLine();
             }
@@ -68,11 +69,11 @@ public class ConsoleReader {
                 System.out.println(message);
                 String value = sc.nextLine();
                 if (value.length() != 1){
-                    throw new Exception("Please enter a single character.");
+                    throw new InvalidInputException("Please enter a single character.");
                 }
                 char valueChar = value.charAt(0);
                 return valueChar;
-            }catch (Exception e){
+            }catch (InvalidInputException e){
                 System.out.println(e.getMessage());
             }
         }
@@ -83,7 +84,7 @@ public class ConsoleReader {
                 System.out.println(message);
                 String value = sc.nextLine();
                 if(!value.equals("s") && !value.equals("n") ){
-                    throw new Exception("Invalid input. Please choose 's' or 'n'.");
+                    throw new InvalidInputException("Invalid input. Please choose 's' or 'n'.");
                 }
 
                 if (value.equals("s")){
@@ -91,7 +92,7 @@ public class ConsoleReader {
                 } else if (value.equals("n")) {
                     return false;
                 }
-            }catch (Exception e){
+            }catch (InvalidInputException e){
                 System.out.println(e.getMessage());
             }
         }
@@ -102,10 +103,10 @@ public class ConsoleReader {
                 System.out.println(message);
                 String value = sc.nextLine();
                 if(value.trim().isEmpty()){
-                    throw new Exception("Input cannot be empty. Please enter a text.");
+                    throw new InvalidInputException("Input cannot be empty. Please enter a text.");
                 }
                 return value;
-            }catch (Exception e){
+            }catch (InvalidInputException e){
                 System.out.println(e.getMessage());
             }
         }
