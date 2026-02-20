@@ -4,14 +4,23 @@ import java.util.ArrayList;
 
 public class Sale {
 
-   private ArrayList<Product> products = new ArrayList<>();
+   private ArrayList<Product> products;
+   private double totalPrice;
 
-    private double totalPrice = 0;
+   public Sale(){
+       this.products = new ArrayList<>();
+       this.totalPrice = 0;
+   }
+
+   public void addProduct(Product product) {
+       products.add(product);
+   }
 
     public double calculateTotal() {
 
-        if (products.isEmpty())
+        if (products.isEmpty()) {
             throw new EmptySaleException("Cannot calculate total of an empty sale");
+        }
 
         totalPrice = 0;
 
@@ -19,6 +28,8 @@ public class Sale {
             totalPrice = totalPrice + products.get(i).getPrice();
         }
         return totalPrice;
+
+
 
     }
 }
