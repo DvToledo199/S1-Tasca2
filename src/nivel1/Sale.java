@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 public class Sale {
 
-    ArrayList<Product> products = new ArrayList<>();
+   private ArrayList<Product> products = new ArrayList<>();
 
-    double totalPrice = 0;
+    private double totalPrice = 0;
 
     public double calculateTotal() {
 
         if (products.isEmpty())
             throw new EmptySaleException("Cannot calculate total of an empty sale");
+
+        totalPrice = 0;
 
         for (int i = 0; i < products.size(); i++) {
             totalPrice = totalPrice + products.get(i).getPrice();
